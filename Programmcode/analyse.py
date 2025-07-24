@@ -24,7 +24,7 @@ class Analyser:
             "flesch_original", "gunning_original", "dale_chall_original",
             "flesch_generalized", "gunning_generalized", "dale_chall_generalized",
             "flesch_tagged", "gunning_tagged", "dale_chall_tagged",
-            "flesch_supressed", "gunning_supressed", "dale_chall_supressed",
+            "flesch_suppressed", "gunning_suppressed", "dale_chall_suppressed",
             "flesch_randomized", "gunning_randomized", "dale_chall_randomized"
         ]
 
@@ -34,11 +34,11 @@ class Analyser:
 
         self.df_full = pd.DataFrame(result)
 
-        self.flesch = ["flesch_tagged", "flesch_generalized", "flesch_supressed", "flesch_randomized"]
+        self.flesch = ["flesch_tagged", "flesch_generalized", "flesch_suppressed", "flesch_randomized"]
 
-        self.gunning = ["gunning_tagged", "gunning_generalized", "gunning_supressed", "gunning_randomized"]
+        self.gunning = ["gunning_tagged", "gunning_generalized", "gunning_suppressed", "gunning_randomized"]
 
-        self.dale_chall = ["dale_chall_tagged", "dale_chall_generalized", "dale_chall_supressed", "dale_chall_randomized"]
+        self.dale_chall = ["dale_chall_tagged", "dale_chall_generalized", "dale_chall_suppressed", "dale_chall_randomized"]
         
         
     def showData_diff(self, data, category):
@@ -85,7 +85,7 @@ class Analyser:
         scatter(c, 'Dale Chall')
  
 
-        if category == 'Supressed':
+        if category == 'Suppressed':
             title = 'Suppression'
         elif category == 'Randomized':
             title = 'Randomisation'
@@ -126,7 +126,7 @@ class Analyser:
 
                 if b.rsplit("_", 1)[1] == "tagged":
                     title2 = 'Tagging'
-                elif b.rsplit("_", 1)[1] == "supressed":
+                elif b.rsplit("_", 1)[1] == "suppressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
                     title2 = 'Randomisation'
@@ -175,7 +175,7 @@ class Analyser:
 
                 if b.rsplit("_", 1)[1] == "tagged":
                     title2 = 'Tagging'
-                elif b.rsplit("_", 1)[1] == "supressed":
+                elif b.rsplit("_", 1)[1] == "suppressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
                     title2 = 'Randomisation'
@@ -220,11 +220,11 @@ class Analyser:
         
         df_diff_generalized = df_diff[["flesch_diff_generalized", "gunning_diff_generalized", "dale_chall_diff_generalized"]]
         
-        df_diff["flesch_diff_supressed"] = df_diff["flesch_original"] - df_diff["flesch_supressed"]
-        df_diff["gunning_diff_supressed"] = df_diff["gunning_original"] - df_diff["gunning_supressed"]
-        df_diff["dale_chall_diff_supressed"] = df_diff["dale_chall_original"] - df_diff["dale_chall_supressed"]
+        df_diff["flesch_diff_suppressed"] = df_diff["flesch_original"] - df_diff["flesch_suppressed"]
+        df_diff["gunning_diff_suppressed"] = df_diff["gunning_original"] - df_diff["gunning_suppressed"]
+        df_diff["dale_chall_diff_suppressed"] = df_diff["dale_chall_original"] - df_diff["dale_chall_suppressed"]
         
-        df_diff_supressed = df_diff[["flesch_diff_supressed", "gunning_diff_supressed", "dale_chall_diff_supressed"]]
+        df_diff_suppressed = df_diff[["flesch_diff_suppressed", "gunning_diff_suppressed", "dale_chall_diff_suppressed"]]
         
         df_diff["flesch_diff_randomized"] = df_diff["flesch_original"] - df_diff["flesch_randomized"]
         df_diff["gunning_diff_randomized"] = df_diff["gunning_original"] - df_diff["gunning_randomized"]
@@ -234,7 +234,7 @@ class Analyser:
         
         self.showData_diff(df_diff_tagged, 'Tagged')
         self.showData_diff(df_diff_generalized, 'Generalized')
-        self.showData_diff(df_diff_supressed, 'Supressed')
+        self.showData_diff(df_diff_suppressed, 'Suppressed')
         self.showData_diff(df_diff_randomized, 'Randomized')
 
     def compare_data(self):
@@ -242,11 +242,11 @@ class Analyser:
         df_compare = self.df
      
 
-        df_compare_gunning = df_compare[["gunning_tagged", "gunning_generalized", "gunning_supressed", "gunning_randomized"]]
+        df_compare_gunning = df_compare[["gunning_tagged", "gunning_generalized", "gunning_suppressed", "gunning_randomized"]]
 
-        df_compare_flesch = df_compare[["flesch_tagged", "flesch_generalized", "flesch_supressed", "flesch_randomized"]]
+        df_compare_flesch = df_compare[["flesch_tagged", "flesch_generalized", "flesch_suppressed", "flesch_randomized"]]
 
-        df_compare_dale_chall = df_compare[["dale_chall_tagged", "dale_chall_generalized", "dale_chall_supressed", "dale_chall_randomized"]]
+        df_compare_dale_chall = df_compare[["dale_chall_tagged", "dale_chall_generalized", "dale_chall_suppressed", "dale_chall_randomized"]]
 
         self.showData_compare(df_compare_gunning, 'Gunning')
         self.showData_compare(df_compare_flesch, 'Flesch')
@@ -260,7 +260,7 @@ class Analyser:
         a = f"{category.lower()}_generalized"
         b = f"{category.lower()}_tagged"
         c = f"{category.lower()}_randomized"
-        d = f"{category.lower()}_supressed"
+        d = f"{category.lower()}_suppressed"
   
         colors = {
             'Generalisierung': '#4682B4',   
@@ -437,7 +437,7 @@ class Analyser:
 
                 if b.rsplit("_", 1)[1] == "tagged":
                     title2 = 'Tagging'
-                elif b.rsplit("_", 1)[1] == "supressed":
+                elif b.rsplit("_", 1)[1] == "suppressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
                     title2 = 'Randomisation'

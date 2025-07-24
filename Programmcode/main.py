@@ -75,14 +75,14 @@ if __name__ == "__main__":
         for idx, text in enumerate(posts):
             generalized = anonymizer.generalize(text)
             tagged = anonymizer.tag(text)
-            supressed = anonymizer.supress(text)
+            suppressed = anonymizer.supress(text)
             randomized = anonymizer.randomize(text)
                 
             output = {
                 "original": text,
                 "generalized": generalized,
                 "tagged": tagged,
-                "supressed": supressed,
+                "suppressed": suppressed,
                 "randomized": randomized
             }
 
@@ -118,9 +118,9 @@ if __name__ == "__main__":
             flesch_tagged = readability.flesch(post["tagged"])
             gunning_tagged = readability.gunning(post["tagged"])
             dale_chall_tagged = readability.dale_chall(post["tagged"])
-            flesch_supressed = readability.flesch(post["supressed"])
-            gunning_supressed = readability.gunning(post["supressed"])
-            dale_chall_supressed = readability.dale_chall(post["supressed"])
+            flesch_suppressed = readability.flesch(post["suppressed"])
+            gunning_suppressed = readability.gunning(post["suppressed"])
+            dale_chall_suppressed = readability.dale_chall(post["suppressed"])
             flesch_randomized = readability.flesch(post["randomized"])
             gunning_randomized = readability.gunning(post["randomized"])
             dale_chall_randomized = readability.dale_chall(post["randomized"])
@@ -129,7 +129,7 @@ if __name__ == "__main__":
                 "original": post["original"],
                 "generalized": post["generalized"],
                 "tagged": post["tagged"],
-                "supressed": post["supressed"],
+                "suppressed": post["suppressed"],
                 "randomized": post["randomized"],
                 "flesch_original": flesch_original,
                 "gunning_original": gunning_original,
@@ -140,9 +140,9 @@ if __name__ == "__main__":
                 "flesch_tagged": flesch_tagged,
                 "gunning_tagged": gunning_tagged,
                 "dale_chall_tagged": dale_chall_tagged,
-                "flesch_supressed": flesch_supressed,
-                "gunning_supressed": gunning_supressed,
-                "dale_chall_supressed": dale_chall_supressed,
+                "flesch_suppressed": flesch_suppressed,
+                "gunning_suppressed": gunning_suppressed,
+                "dale_chall_suppressed": dale_chall_suppressed,
                 "flesch_randomized": flesch_randomized,
                 "gunning_randomized": gunning_randomized,
                 "dale_chall_randomized": dale_chall_randomized
@@ -172,14 +172,14 @@ if __name__ == "__main__":
 
         tagged = informationContent.measure_information_content_for_category(posts, "tagged")
 
-        supressed = informationContent.measure_information_content_for_category(posts, "supressed")
+        suppressed = informationContent.measure_information_content_for_category(posts, "suppressed")
 
         results = {
             "original": original,
             "generalized": generalized,
             "randomized": randomized,
             "tagged": tagged,
-            "supressed": supressed
+            "suppressed": suppressed
         }
 
 

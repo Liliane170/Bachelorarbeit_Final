@@ -88,7 +88,7 @@ class Analyser:
         if category == 'Supressed':
             title = 'Suppression'
         elif category == 'Randomized':
-            title = 'Randomisation'
+            title = 'Randomisierung'
         elif category == 'Generalized':
             title = 'Generalisierung'
         else:
@@ -129,7 +129,7 @@ class Analyser:
                 elif b.rsplit("_", 1)[1] == "supressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
-                    title2 = 'Randomisation'
+                    title2 = 'Randomisierung'
                 else:
                     title2 = 'Generalisierung'
 
@@ -178,7 +178,7 @@ class Analyser:
                 elif b.rsplit("_", 1)[1] == "supressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
-                    title2 = 'Randomisation'
+                    title2 = 'Randomisierung'
                 else:
                     title2 = 'Generalisierung'
 
@@ -440,7 +440,7 @@ class Analyser:
                 elif b.rsplit("_", 1)[1] == "supressed":
                     title2 = 'Suppression'
                 elif b.rsplit("_", 1)[1] == "randomized":
-                    title2 = 'Randomisation'
+                    title2 = 'Randomisierung'
                 else:
                     title2 = 'Generalisierung'
 
